@@ -5,6 +5,7 @@ import cn.rmonkey.commons.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.ibatis.type.Alias;
 
 /**
@@ -12,8 +13,8 @@ import org.apache.ibatis.type.Alias;
  * @Description
  * @date 2022/5/12 14:44
  */
-@Alias("blogUser")
 @Data
+@ToString
 @NoArgsConstructor
 @TableName("blog_user")
 public class BlogUser extends BaseEntity {
@@ -40,6 +41,8 @@ public class BlogUser extends BaseEntity {
     //insertStrategy; if the property is not null,will be inserted,otherwise ,will not be inserted
     @TableField(value = "city", exist = true,insertStrategy = FieldStrategy.NOT_NULL)
     private String city;
+    @TableField(value="count",exist = true)
+    private Integer count;
 
 
 }
