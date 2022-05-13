@@ -44,4 +44,36 @@ public class BlogEnum {
         }
 
     }
+    @Getter
+    @ToString
+    public  enum Original {
+        COP("非原创", 0),
+        ORI("原创", 1);
+        @JsonValue
+        private String value;
+        @EnumValue
+        private int code;
+
+        Original(String value, int code) {
+            this.value = value;
+            this.code = code;
+        }
+
+    }
+    @Getter
+    @ToString
+    public  enum Process {
+        DRAFT("草稿", 0),
+        RELE("发布中", 1);
+        @JsonValue
+        private String value;
+        @EnumValue
+        private int code;
+
+        Process(String value, int code) {
+            this.value = value;
+            this.code = code;
+        }
+
+    }
 }

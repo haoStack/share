@@ -36,7 +36,7 @@ public class UserController {
         blogUser.setModifiedBy(11111L);
         blogUser.setModifyTimes(0);
         blogUser.setModifiedTime(new Date());
-        return userService.insertEntity(blogUser);
+        return userService.insertUser(blogUser);
     }
 
     @GetMapping("/update")
@@ -54,21 +54,20 @@ public class UserController {
         blogUser.setModifiedBy(11111L);
         blogUser.setModifyTimes(0);
         blogUser.setModifiedTime(new Date());
-        return userService.updateEntity(blogUser);
+        return userService.updateUser(blogUser);
     }
 
     @GetMapping("/getLis")
     public RespResult selectList() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("nickname", "mic");
-        return userService.selectEntities(map);
+        return userService.findUserList(map);
     }
 
     @GetMapping("/getUser")
     public void selectOne() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("openid", "999");
-        BlogUser blogUser = userService.selectEntity(map);
+        String openid = "666";
+        BlogUser blogUser = userService.findUserByOpenid(openid);
         System.out.println(blogUser.toString());
     }
 
@@ -77,7 +76,7 @@ public class UserController {
         BlogUser blogUser = new BlogUser();
         blogUser.setOpenid("999");
         blogUser.setId(1525020796894470145L);
-        return userService.deleteEntity(blogUser);
+        return userService.deleteUser(blogUser);
     }
 
 }
